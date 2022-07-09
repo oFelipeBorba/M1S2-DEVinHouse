@@ -1,76 +1,31 @@
-// Você foi contratado por um supermercado para catalogar a compra de uma cliente.
-//Assim que a aplicação começa deverá ser perguntado em um prompt qual produto o cliente deseja comprar,
-//só serão aceitas as seguintes respostas:
-
-// (1) Hortifruti
-// (2) Laticínios
-// (3) Carnes
-// (4) Peixes
-// (5) Aves
-// (6) Fechar pedido
-// Após fazer a seleção do produto pergunte a quantidade de itens que o cliente irá comprar.
-// Apenas se o cliente selecionar a opção 6 é que a pergunta deverá parar de ser repetida.
-// Ao selecionar a opção 6 imprima o produto que o cliente pegou em maior quantidade.
-
-var i = 0;
-var itemInicio = [
-  "Hortifruti",
-  "",
-  "Laticíneos",
-  "",
-  "Carnes",
-  "",
-  "Peixes",
-  "",
-  "Aves",
-  "",
-  "Fechar o pedido",
-];
-var item = [
-  "Hortifruti",
-  "",
-  "Laticíneos",
-  "",
-  "Carnes",
-  "",
-  "Peixes",
-  "",
-  "Aves",
-  "",
-  "Fechar o pedido",
-];
+var item = ['','Hortifruti', 'Laticíneos','Carnes','Peixes','Aves'];
+var final = false;
+var selecao = '';
+var qtd = ['0','0','0','0','0'];
 do {
-  if (i == 10) {
-    item[i] = window.alert("Seu pedido será fechado.");
-    i++;
-  } else {
-    item[i] = window.prompt(
-      "Você gostaria de comprar algum item de " +
-        item[i] +
-        ". Responda apenas com: 'sim' ou 'não'"
-    );
-    if (item[i] == "sim" && item[i] != "não") {
-      i++;
-      item[i] = window.prompt("Quantos itens você gostaria?");
-      i++;
-    } else if (item[i] != "sim" && item[i] == "não") {
-      i++;
-      item[i] = 0;
-      i++;
-    } else if (item[i] != "sim" && item[i] != "não") {
-      window.alert("Por favor, responda apenas com 'sim' ou 'não'");
-      item[i] = itemInicio[i];
-    }
-  }
-} while (i < 11);
-console.log("Gostaria de hortifruti:" + item[0]);
-console.log("Quantidade de itens em hortifruti:" + item[1]);
-console.log("Gostaria de laticínios:" + item[2]);
-console.log("Quantidade de itens em laticínios:" + item[3]);
-console.log("Gostaria de carnes:" + item[4]);
-console.log("Quantidade de itens em carnes:" + item[5]);
-console.log("Gostaria de peixes:" + item[6]);
-console.log("Quantidade de itens em peixes:" + item[7]);
-console.log("Gostaria de aves:" + item[8]);
-console.log("Quantidade de itens em aves:" + item[9]);
-console.log(item[10]);
+selecao = window.prompt("Qual produto você deseja comprar: (1) Hortifruti; (2) Laticínios; (3) Carnes; (4) Peixes; (5) Aves; (6) Fechar pedido");
+switch (selecao) {
+    case '1':
+        qtd[0] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
+        break;
+    case '2':
+        qtd[1] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
+        break;
+    case '3':
+        qtd[2] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
+        break;
+    case '4':
+        qtd[3] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
+        break;
+    case '5':
+        qtd[4] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
+        break;  
+    case '6':
+        window.alert("Obrigado.");
+        final = true;
+        break;     
+}                                 
+} while (final == false);
+document.write(
+"<h2>🍲Lista de compras😋</h2>Você selecionou as seguintes quantidades abaixo:</br>"+qtd[0]+' itens de Hortifruti</br>'+qtd[1]+' itens de Laticínios</br>'+qtd[2]+' itens de Carnes</br>'+qtd[3]+' itens de Peixes</br>'+qtd[4]+' itens de Aves</br>'
+)
