@@ -1,18 +1,15 @@
-var i = 0, qtd = 0;
-var array = ['user1', 'user2', 'user3', 'user4'];
-do {
-    array[i] = window.prompt("Digite aqui sua avaliação:");
-    if (array[i] == 'ruim'){
-        qtd++;
-        }
-        if ((array[i] != 'ruim') && (array[i] != 'bom') && (array[i] != 'excelente')){
-            array[i] = window.prompt("Digite aqui sua avaliação (Escolha entre: bom, ruim ou excelente):");
-            if (array[i] == 'ruim'){
-                qtd++;
-            }
-        }
-        i++;
-} while (i < 4);
-  
-console.log(qtd," pessoas acharam a série ruim.");
+// Utilizando estrutura de repetição for realize a tabuada do número 5 e exibe em tela da seguinte forma:
 
+// 5 x 0 = 0
+// 5 x 1 = 5
+// 5 x 2 = 10
+// ....
+// 5 x 10 = 50
+
+//variavel i será o multiplicador e ao mesmo tempo o que limita meu for
+var i; 
+var atualResult = 0;
+for ( i = 0; i<=10 ; i++) {
+    atualResult = (5*parseFloat(i));
+    document.write('5 x '+parseFloat(i)+' = '+atualResult+'</br>');
+}
