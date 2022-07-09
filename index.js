@@ -1,36 +1,31 @@
-var item = ['','Hortifruti', 'Laticíneos','Carnes','Peixes','Aves'];
-var final = false;
-var selecao = '';
-var qtd = ['0','0','0','0','0'];
-do {
-selecao = window.prompt("Qual produto você deseja comprar: (1) Hortifruti; (2) Laticínios; (3) Carnes; (4) Peixes; (5) Aves; (6) Fechar pedido");
-if (selecao != '1' &&selecao != '2' &&selecao != '3' &&selecao != '4' &&selecao != '5' &&selecao != '6'){
-    window.alert("Por favor escolha apenas números entre 1 e 6.")
-    selecao = '';
+//Pensando em um sistema de notas online, crie um código que irá capturar o nome do aluno e a nota de 4 unidades
+//usando o prompt dentro de uma laço while, a ideia é que a cada valor digitado seja puxado para um array com o 
+//método push. Após isso, crie um laço “for” que irá calcular a soma de todos os itens do array para ser calculada
+//sua média. Ao final de tudo, deverá ser apresentado em tela o nome do aluno, sua média e se o aluno foi aprovado
+//ou não, para esse último tópico considere a média para aprovação maior ou igual a 7.
+var i = 1, aluno = '', soma = 0, result = 0, notas = [];
+aluno = window.prompt("Digite o nome do aluno:");
+while (i <= 4){
+    notas.push(window.prompt("Valor da "+ i +"ª nota do aluno."));
+    i++;
+}
+i=0;
+
+//apenas para acompanhar os valores o console:
+console.log(aluno);
+console.log(notas[0]);
+console.log(notas[1]);
+console.log(notas[2]);
+console.log(notas[3]);
+console.log(notas.length);
+
+//como trocar esse if por um laço for? 
+if (notas.length == 4) {
+    soma = (parseFloat(notas[0])+parseFloat(notas[1])+parseFloat(notas[2])+parseFloat(notas[3]));
+    result = (soma/4);
+}
+if(result >= 7) {
+    document.write("O aluno <strong>"+aluno+"</strong> ficou ACIMA da média, com o resultado = <strong>"+result+"</strong>");
 }else{
-    switch (selecao) {
-        case '1':
-            qtd[0] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
-            break;
-        case '2':
-            qtd[1] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
-            break;
-        case '3':
-            qtd[2] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
-            break;
-        case '4':
-            qtd[3] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
-            break;
-        case '5':
-            qtd[4] = window.prompt("Quantos itens você gostaria de comprar de " +item[selecao]);
-            break;  
-        case '6':
-            window.alert("Obrigado.");
-            final = true;
-            break;     
-    }                       
-}          
-} while (final == false);
-document.write(
-"<h2>🍲Lista de compras😋</h2>Você selecionou as seguintes quantidades abaixo:</br>"+qtd[0]+' itens de Hortifruti</br>'+qtd[1]+' itens de Laticínios</br>'+qtd[2]+' itens de Carnes</br>'+qtd[3]+' itens de Peixes</br>'+qtd[4]+' itens de Aves</br>'
-)
+    document.write("O aluno <strong>"+aluno+"</strong> ficou ABAIXO da média, com o resultado = <strong>"+result+"</strong>");  
+}
