@@ -1,13 +1,18 @@
-var peso = window.prompt("Digite o seu peso:");
-var altura = window.prompt(
-  "Digite a sua altura(Utilize um ponto '.' para realizar a separação das casas decimais):"
-);
-var imc = parseFloat(peso) / (parseFloat(altura) * parseFloat(altura));
-console.log(imc);
-if (imc >= 25) {
-  window.alert("Você está acima do peso, procure um médico");
-} else if (imc > 18.5 && imc < 24.9) {
-  document.write("PARABÉNS!! Você está no peso ideal");
-} else {
-  document.write("Você está abaixo do peso, procure um médico.");
-}
+var i = 0, qtd = 0;
+var array = ['user1', 'user2', 'user3', 'user4'];
+do {
+    array[i] = window.prompt("Digite aqui sua avaliação:");
+    if (array[i] == 'ruim'){
+        qtd++;
+        }
+        if ((array[i] != 'ruim') && (array[i] != 'bom') && (array[i] != 'excelente')){
+            array[i] = window.prompt("Digite aqui sua avaliação (Escolha entre: bom, ruim ou excelente):");
+            if (array[i] == 'ruim'){
+                qtd++;
+            }
+        }
+        i++;
+} while (i < 4);
+  
+console.log(qtd," pessoas acharam a série ruim.");
+
